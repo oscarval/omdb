@@ -1,0 +1,29 @@
+<div class="container top-30">
+  <div class="row">
+    <div class="col-md-12">
+      <label for="param">Serach Movies</label>
+      <div class="input-group">
+        <input [(ngModel)]="param"
+        class="form-control"
+        type="text" name="param" value="" placeholder="Search movie....">
+        <span class="input-group-btn">
+          <button (click)="searchMovies()" class="btn btn-secondary" type="button">Search</button>
+        </span>
+      </div>
+      <hr>
+    </div>
+  </div>
+  <div class="card-columns">
+    <div class="card animated fadeIn fast" *ngFor="let movie of movies">
+      <img class="card-img-top" [src]="(movie.Poster != 'N/A') ? movie.Poster : '../assets/img/No_Image_Available.jpg'" [alt]="movie.Title">
+      <div class="card-body">
+        <h4 class="card-title">{{ movie.Title }}</h4>
+        <p class="card-text">Type: {{ movie.Type }}</p>
+        <p class="card-text">Year: {{ movie.Year }}</p>
+        <button (click)="viewDetailMovie(movie.imdbID)"
+        type="button" class="btn btn-outline-primary btn-block">More info...</button>
+        <!-- <a [routerLink]="['/heroe',i]" class="btn btn-outline-primary btn-block">Ver más link...</a> -->
+      </div>
+    </div>
+  </div>
+</div>
