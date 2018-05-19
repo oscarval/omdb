@@ -30,7 +30,9 @@ export class UsersService {
   // login user of data base
   loginUser(email,password){
     let user  = JSON.parse(localStorage.getItem(email));
-    if(user && user.password == password){
+    if(user  && user.password == password){
+      localStorage.setItem("login",JSON.stringify(user));
+      this.userLogin = user;
       return true;
     }
     return false;
@@ -38,7 +40,8 @@ export class UsersService {
 
   // logout of user
   logout(){
-    localStorage.setItem("login","");
+    localStorage.removeItem("login");
+    this.userLogin = null;
   }
 
   updateUser(data){

@@ -30,9 +30,9 @@ export class RegisterUserComponent implements OnInit {
     }
   }
 
-  login(dataLogin){
-    if(this._userServices.loginUser(dataLogin.email,dataLogin.password)){
-      this.goProfileUser();;
+  login(){
+    if(this._userServices.loginUser(this.dataLogin.email,this.dataLogin.password)){
+      this.goProfileUser();
     }else{
       this.messageLogin = "Email or passwrod incorrect"
     }

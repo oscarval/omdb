@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {  Router } from '@angular/router';
 import { UsersService } from '../../services/users.service';
 import { OmdbservicesService } from '../../services/omdbservices.service';
 
@@ -11,6 +12,7 @@ export class UserProfileComponent implements OnInit {
   user:any = {};
   movies:any = [];
   constructor(
+    private route:Router,
     private _userServices: UsersService,
     private _ombdServices: OmdbservicesService,
   ) { 
@@ -30,6 +32,11 @@ export class UserProfileComponent implements OnInit {
         });
       }
     }
+  }
+
+  logout(){
+    this._userServices.logout();
+    this.route.navigate( ['/home'] );
   }
 
 }

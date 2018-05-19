@@ -8,12 +8,9 @@ import { UsersService } from '../../services/users.service';
 })
 export class NavbarComponent implements OnInit {
 
-  isLogin:boolean = false;
   constructor(
     private _userServices: UsersService
   ) { 
-
-    this.isLogin = this._userServices.isLogin();
 
   }
 
