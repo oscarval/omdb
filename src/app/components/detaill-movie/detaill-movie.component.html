@@ -6,7 +6,7 @@
 <div class="row animated fadeIn fast">
 
   <div class="col-md-4">
-      <img [src]="(movie.Poster != 'N/A') ? movie.Poster : '../assets/img/No_Image_Available.jpg'" class="img-fluid" [alt]="movie.Title">
+      <img [src]="(movie?.Poster && movie.Poster != 'N/A') ? movie.Poster : '../assets/img/No_Image_Available.jpg'" class="img-fluid" [alt]="movie.Title">
 
   </div>
 
@@ -14,7 +14,16 @@
     <h3>{{movie.Title}}</h3>
     <hr>
     <p>
-      {{movie.Type}}
+      Actors: {{movie.Actors}}
+    </p>
+    <p>
+        Country: {{movie.Country}}
+    </p>
+    <p>
+        Director: {{movie.Director}}
+    </p>
+    <p>
+        Runtime: {{movie.Runtime}}
     </p>
   </div>
 
