@@ -15,7 +15,7 @@ export class ListmoviesComponent implements OnInit {
   constructor(
     private activateRoute:ActivatedRoute,
     private route:Router,
-    private _ombdServices: OmdbservicesService) { 
+    private _ombdServices: OmdbservicesService) {
       this.movies = this._ombdServices.movies;
     }
 

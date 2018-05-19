@@ -6,21 +6,29 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Routing
 import { APP_ROUTING } from './app.routes';
 
+// Services
+import { OmdbservicesService } from './services/omdbservices.service';
+import { UsersService } from './services/users.service';
+
 // Components
 import { AppComponent } from './app.component';
 import { ListmoviesComponent } from './components/listmovies/listmovies.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-
-// Services
-import { OmdbservicesService } from './services/omdbservices.service';
 import { DetaillMovieComponent } from './components/detaill-movie/detaill-movie.component';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ListmoviesComponent,
     NavbarComponent,
-    DetaillMovieComponent
+    DetaillMovieComponent,
+    RegisterUserComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +37,8 @@ import { DetaillMovieComponent } from './components/detaill-movie/detaill-movie.
     HttpModule
   ],
   providers: [
-    OmdbservicesService
+    OmdbservicesService,
+    UsersService
   ],
   bootstrap: [AppComponent]
 })
