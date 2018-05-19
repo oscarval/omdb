@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute , Router } from '@angular/router';
 import { OmdbservicesService } from '../../services/omdbservices.service';
 
 @Component({
@@ -11,7 +12,12 @@ export class ListmoviesComponent implements OnInit {
   param:string = "";
   movies:any[];
 
-  constructor(private _ombdServices: OmdbservicesService) { }
+  constructor(
+    private activateRoute:ActivatedRoute,
+    private route:Router,
+    private _ombdServices: OmdbservicesService) { 
+      this.movies = this._ombdServices.movies;
+    }
 
   ngOnInit() {
   }
@@ -19,17 +25,11 @@ export class ListmoviesComponent implements OnInit {
   searchMovies(){
     this._ombdServices.getMovies(this.param)
           .subscribe(data =>{
-            console.log(data);
             this.movies = data;
           });
   }
 
   viewDetailMovie(idMovie:string){
-    //idMovie = "tt1285016";
-    this._ombdServices.getMovie(idMovie)
-          .subscribe(data =>{
-            console.log(data);
-            //this.movies = data;
-          });
+    this.route.navigate( ['/movie',idMovie] );
   }
 }
