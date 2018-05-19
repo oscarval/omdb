@@ -4,12 +4,12 @@ import {DetaillMovieComponent } from './components/detaill-movie/detaill-movie.c
 import { RegisterUserComponent } from './components/register-user/register-user.component';
 import {UserProfileComponent } from './components/user-profile/user-profile.component';
 
+// Routes for my app
 const APP_ROUTES: Routes = [
   { path: 'home', component: ListmoviesComponent },
   { path: 'movie/:id', component: DetaillMovieComponent },
   { path: 'register', component: RegisterUserComponent },
   { path: 'user', component: UserProfileComponent },
-//   { path: 'buscar/:termino', component: BuscarComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 

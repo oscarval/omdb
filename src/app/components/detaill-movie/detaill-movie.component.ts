@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Location} from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { OmdbservicesService } from '../../services/omdbservices.service';
+
 
 @Component({
   selector: 'app-detaill-movie',
@@ -12,7 +14,8 @@ export class DetaillMovieComponent implements OnInit {
 
   constructor(
     private activateRoute:ActivatedRoute,
-    private _ombdServices: OmdbservicesService
+    private _ombdServices: OmdbservicesService,
+    private _location: Location
   ) { 
     this.activateRoute.params.subscribe( params =>{
       this._ombdServices.getMovie(params["id"]).subscribe(data=>{
@@ -25,5 +28,8 @@ export class DetaillMovieComponent implements OnInit {
   ngOnInit() {
   }
 
+  back(){
+    this._location.back();
+  }
 
 }

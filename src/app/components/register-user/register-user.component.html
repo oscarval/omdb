@@ -1,16 +1,41 @@
-<div class="container">
-<h2>Register User</h2>
-<form>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+<div class="container animated fadeIn fast">
+  <div class="row">
+    <div class="col-6">
+        <h2>Register User</h2>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputfistname">First Name</label>
+                <input [(ngModel)]="userdata.name" name="name" type="text" class="form-control" id="exampleInputfistname" aria-describedby="emailHelp" placeholder="Enter your name">
+              </div>
+              <div class="form-group">
+                  <label for="exampleInputlastname">Last Name</label>
+                  <input [(ngModel)]="userdata.lastname" name="lastname" type="text" class="form-control" id="exampleInputlastname" aria-describedby="emailHelp" placeholder="Enter your last name">
+                </div>
+            <div class="form-group">
+              <label for="exampleInputEmail">Email address</label>
+              <input [(ngModel)]="userdata.email" name="email" type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+              <div class="form-group">
+              <label for="exampleInputPassword">Password</label>
+              <input [(ngModel)]="userdata.password" name="password" type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
+            </div>
+            <button class="btn btn-primary" (click)="registerUser()">Register</button>
+          </form>
     </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-    <button class="btn btn-primary" (click)="registerUser()">Register</button>
-  </form>
+    <div class="col-6">
+        <h2>Login User</h2>
+        <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input [(ngModel)]="dataLogin.email" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input [(ngModel)]="dataLogin.password" name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <button class="btn btn-primary" (click)="goProfileUser()">Login</button>
+          </form>
+      </div>
+  </div>
 
 </div>

@@ -9,6 +9,7 @@ import { APP_ROUTING } from './app.routes';
 // Services
 import { OmdbservicesService } from './services/omdbservices.service';
 import { UsersService } from './services/users.service';
+import { ToolmoviesService } from './services/toolmovies.service';
 
 // Components
 import { AppComponent } from './app.component';
@@ -38,7 +39,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
   ],
   providers: [
     OmdbservicesService,
-    UsersService
+    UsersService,
+    ToolmoviesService
   ],
   bootstrap: [AppComponent]
 })

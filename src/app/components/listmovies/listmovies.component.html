@@ -1,7 +1,7 @@
-<div class="container top-30">
+<div class="container top-30 animated fadeIn fast">
   <div class="row">
     <div class="col-md-12">
-      <label for="param">Serach Movies</label>
+      <label for="param">Search Movies</label>
       <div class="input-group">
         <input [(ngModel)]="param"
         class="form-control"
@@ -22,6 +22,10 @@
         <p class="card-text">Year: {{ movie.Year }}</p>
         <button (click)="viewDetailMovie(movie.imdbID)"
         type="button" class="btn btn-outline-primary btn-block">More info...</button>
+        <button *ngIf="isLogin && movie.favorite"
+        type="button" class="btn btn-outline-secondary btn-block">Favorite</button>
+        <button *ngIf="isLogin && !movie.favorite" (click)="markFavoriteUser(movie.imdbID)"
+        type="button" class="btn btn-outline-primary btn-block">Mark Favorite</button>
       </div>
     </div>
   </div>

@@ -1,3 +1,24 @@
-<p>
-  user-profile works!
-</p>
+<div class="container animated fadeIn fast">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../../../assets/img/avatar.jpg" [alt]="user.name">
+        <div class="card-body">
+          <h5 class="card-title">{{user.name}} {{user.lastname}}</h5>
+          <p class="card-text">Email: {{ user.email}}</p>
+        </div>
+      </div>
+      <hr>
+      <h2>Favorites Movies</h2>
+      <ul>
+        <div class="row">
+          <div class="col-md-3 text-center puntero"
+                [routerLink] = "['/movie',movie.imdbID]"
+                *ngFor="let movie of movies">
+            <img [src]="(movie.Poster != 'N/A') ? movie.Poster : '../assets/img/No_Image_Available.jpg'" class="img-fluid  img-thumbnail" alt="movie.Title">
+            <p>
+              {{ movie.Title }}
+            </p>
+            <hr>
+          </div>
+        </div>
+      </ul>
+</div>

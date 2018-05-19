@@ -1,27 +1,33 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
-import 'rxjs/add/operator/map';
 
 @Injectable()
 export class UsersService {
 
-  urlApi:string = "https://reqres.in/api/";
+  /* This component simulate a register, login and logout user using localstorage */
 
-  constructor(private http:Http) { 
+  userLogin:any;
+  constructor() {
+    this.isLogin ();
   }
 
+  // know if exist user login
+  isLogin(){
+    let login = JSON.parse(localStorage.getItem("login"));
+    if(login && login != ""){
+      this.userLogin = login
+      return true;
+    }
+    return false;
+  }
+
+  // register user in data base
   registerUser(data){
-    data = {
-        "name": "alexis",
-        "lastname": "valdez",
-        "avatar": "https://cdn.icon-icons.com/icons2/108/PNG/256/males_male_avatar_man_people_faces_18355.png",
-        "email": "prueba@gmail.com"
-        
-    };
     localStorage.setItem(data.email,JSON.stringify(data));
+    localStorage.setItem("login",JSON.stringify(data));
     return true;
   }
 
+  // login user of data base
   loginUser(email,password){
     let user  = JSON.parse(localStorage.getItem(email));
     if(user && user.password == password){
@@ -30,4 +36,15 @@ export class UsersService {
     return false;
   }
 
+  // logout of user
+  logout(){
+    localStorage.setItem("login","");
+  }
+
+  updateUser(data){
+    localStorage.setItem(data.email,JSON.stringify(data));
+    localStorage.setItem("login",JSON.stringify(data));
+    this.userLogin = data;
+    return true;
+  }
 }

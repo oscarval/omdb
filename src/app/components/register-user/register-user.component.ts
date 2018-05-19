@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute , Router } from '@angular/router';
 import { UsersService } from '../../services/users.service';
 
 @Component({
@@ -8,9 +9,13 @@ import { UsersService } from '../../services/users.service';
 })
 export class RegisterUserComponent implements OnInit {
 
-  userdata:any;
+  userdata:any = {};
+  dataLogin:any = {};
   message:string = "";
+  messageLogin:string = "";
   constructor(
+    private activateRoute:ActivatedRoute,
+    private route:Router,
     private _userServices: UsersService
   ) { }
 
@@ -19,10 +24,22 @@ export class RegisterUserComponent implements OnInit {
 
   registerUser(){
     if(this._userServices.registerUser(this.userdata)){
-
+      this.goProfileUser();
     }else{
       this.message = "Already exist user with this email. Try again please"
     }
+  }
+
+  login(dataLogin){
+    if(this._userServices.loginUser(dataLogin.email,dataLogin.password)){
+      this.goProfileUser();;
+    }else{
+      this.messageLogin = "Email or passwrod incorrect"
+    }
+  }
+
+  goProfileUser(){
+    this.route.navigate( ['/user'] );
   }
 
 }

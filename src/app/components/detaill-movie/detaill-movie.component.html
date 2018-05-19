@@ -1,5 +1,5 @@
 <div class="container">
-<a [routerLink]="['/movies']" class="btn btn-outline-danger">Back</a>
+<a (click)="back()" class="btn btn-outline-danger">Back</a>
 <h1 class="animated fadeIn">{{movie.Title | uppercase }} <small>({{movie.Year | date:'y'}})</small> </h1>
 <hr>
 
