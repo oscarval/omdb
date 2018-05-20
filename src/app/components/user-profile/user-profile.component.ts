@@ -17,6 +17,7 @@ export class UserProfileComponent implements OnInit {
     private _ombdServices: OmdbservicesService,
   ) { 
     this.user = this._userServices.userLogin;
+    console.log(this.user);
     this.getFavoritesMovies();
   }
 
@@ -26,7 +27,7 @@ export class UserProfileComponent implements OnInit {
   getFavoritesMovies(){
     if(this.user.favorites){
       for(let id of this.user.favorites){
-        //console.log(id);
+        console.log(id);
         this._ombdServices.getMovie(id).subscribe(data=>{
           this.movies.push(data);
         });

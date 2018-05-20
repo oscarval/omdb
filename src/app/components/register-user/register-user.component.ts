@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormsModule} from '@angular/forms'
 import { ActivatedRoute , Router } from '@angular/router';
 import { UsersService } from '../../services/users.service';
 
@@ -23,18 +24,28 @@ export class RegisterUserComponent implements OnInit {
   }
 
   registerUser(){
-    if(this._userServices.registerUser(this.userdata)){
-      this.goProfileUser();
+    if(this.userdata.email && this.userdata.email != "" && this.userdata.password && this.userdata.password != ""
+  ){
+      if(this._userServices.registerUser(this.userdata)){
+        this.goProfileUser();
+      }else{
+        this.message = "Already exist user with this email. Try again please"
+      }
     }else{
-      this.message = "Already exist user with this email. Try again please"
+      this.message = "Please, complete fields required";
     }
   }
 
   login(){
-    if(this._userServices.loginUser(this.dataLogin.email,this.dataLogin.password)){
-      this.goProfileUser();
+    if(this.dataLogin.email && this.dataLogin.email != "" && this.dataLogin.password && this.dataLogin.password != ""
+    ){
+      if(this._userServices.loginUser(this.dataLogin.email,this.dataLogin.password)){
+        this.goProfileUser();
+      }else{
+        this.messageLogin = "Email or passwrod incorrect";
+      }
     }else{
-      this.messageLogin = "Email or passwrod incorrect"
+      this.messageLogin = "Please, complete fields required";
     }
   }
 

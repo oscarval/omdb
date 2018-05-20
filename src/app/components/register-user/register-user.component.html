@@ -2,37 +2,43 @@
   <div class="row">
     <div class="col-6">
         <h2>Register User</h2>
-        <form>
+        <form name="formregister" data-toggle="validator" role="form">
             <div class="form-group">
                 <label for="exampleInputfistname">First Name</label>
-                <input [(ngModel)]="userdata.name" name="name" type="text" class="form-control" id="exampleInputfistname" aria-describedby="emailHelp" placeholder="Enter your name">
+                <input [(ngModel)]="userdata.name" name="name" type="text" class="form-control" id="exampleInputfistname"  placeholder="Enter your name">
               </div>
               <div class="form-group">
                   <label for="exampleInputlastname">Last Name</label>
-                  <input [(ngModel)]="userdata.lastname" name="lastname" type="text" class="form-control" id="exampleInputlastname" aria-describedby="emailHelp" placeholder="Enter your last name">
+                  <input [(ngModel)]="userdata.lastname" name="lastname" type="text" class="form-control" id="exampleInputlastname"  placeholder="Enter your last name">
                 </div>
             <div class="form-group">
               <label for="exampleInputEmail">Email address *</label>
-              <input required [(ngModel)]="userdata.email" name="email" type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+              <input required [(ngModel)]="userdata.email" name="email" type="email" class="form-control" id="exampleInputEmail"  placeholder="Enter email">
             </div>
               <div class="form-group">
               <label for="exampleInputPassword">Password *</label>
               <input required [(ngModel)]="userdata.password" name="password" type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
             </div>
+            <div *ngIf="message != ''" class="form-group text-danger">
+                <span>{{message}}</span>
+              </div>
             <button type="submit" class="btn btn-primary" (click)="registerUser()">Register</button>
           </form>
     </div>
     <div class="col-6">
         <h2>Login User</h2>
-        <form>
+        <form name="formlogin" data-toggle="validator" role="form">
             <div class="form-group">
               <label for="exampleInputEmail1">Email address *</label>
-              <input required [(ngModel)]="dataLogin.email" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <input required [(ngModel)]="dataLogin.email" name="email" type="email" class="form-control" id="exampleInputEmail1"  placeholder="Enter email">
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Password *</label>
               <input required [(ngModel)]="dataLogin.password" name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div>
+            <div *ngIf="messageLogin != ''"  class="form-group text-danger">
+                <span>{{messageLogin}}</span>
+              </div>
             <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
           </form>
       </div>

@@ -24,6 +24,7 @@ export class UsersService {
   registerUser(data){
     localStorage.setItem(data.email,JSON.stringify(data));
     localStorage.setItem("login",JSON.stringify(data));
+    this.userLogin = data;
     return true;
   }
 
