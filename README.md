@@ -10,21 +10,18 @@ The Environment of Development must have
 Angular cli https://cli.angular.io/
 
 DEPLOY PROJECT
-Clone this repository on your computer
 
-git clone https://github.com/oscarval/omdb.git
+* Clone this repository on your computer
+    * git clone https://github.com/oscarval/omdb.git
 
-Go to folder omdb
+* Go to folder omdb
+    * cd omdb
 
-cd omdb
+* Install all npm dependencies
+    * npm install
 
-Install all npm dependencies
-
-npm install
-
-Test de app.
-
-ng serve
+* Test de app.
+    * ng serve
 
 ## Development server
 
