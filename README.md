@@ -6,20 +6,20 @@ The Local Storage is uses like database to save the users and your data.
 ## Clone Repository and Init Project
 
 REQUSITES:
-.- The Environment of Development must have
-.- Angular cli https://cli.angular.io/
+The Environment of Development must have
+Angular cli https://cli.angular.io/
 
 DEPLOY PROJECT
-.- Clone this repository on your computer.
+Clone this repository on your computer.
 git clone https://github.com/oscarval/omdb.git
-.- Go to folder omdb
+
+Go to folder omdb
 cd omdb
-.- Install all node dependencies
+
+Install all npm dependencies
 npm install
-npm install jquery
-npm install popper.js --save
-npm install bootstrap-validator
-.- Test de app.
+
+Test de app.
 ng serve
 
 ## Development server
